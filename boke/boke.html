@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>博客园注册</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style type="text/css">
+		.status {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="header" class="clearfix">
+		<span class="index-link">
+			<span>&laquo;</span>
+			<a href="###">博客园</a>
+		</span>
+		
+		<span class="login-box">	
+			[
+			<a href="###">登录</a>
+			<span>·</span>
+			<a href="###">注册</a>
+			]
+		</span>
+	</div>
+	<div id="mainContent">
+		<h1>
+			<a href="###">
+				<img src="http://static.cnblogs.com/images/logo.gif">
+			</a>
+		</h1>
+		<ul class="link-tab clearfix">
+			<li>
+				<a href="###">登录</a>
+			</li>
+			<li class="active">
+				<a href="###">注册</a>
+			</li>
+			<li>
+				<a href="###">申请博客</a>
+			</li>
+			<li>
+				<a href="###">找回用户名</a>
+			</li>
+			<li>
+				<a href="###">重置密码</a>
+			</li>
+		</ul>
+		<p class="tips">
+			提示：这里是面向开发者的知识分享社区，不允许发布任何推广信息
+		</p>
+		<div class="form-box">
+			<form>
+				<dl>
+					<dt>
+<label>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+<input type="text" name="email">
+<span class="status status-error status-null">不可为空</span>
+<span class="status status-error status-format">Email格式错误，请重新输入</span>
+<span class="status status-warm">请输入有效的Email地址</span>
+<span class="status status-succ">输入成功</span>
+					</dt>
+					<dd>
+						需要通过邮箱激活帐户，不支持sohu，21cn，sogou的邮箱
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<label>登录用户名：</label>
+						<input type="text" name="username">
+						<span class="status status-error status-null">不可为空</span>
+						<!-- <span class="status status-error">"sdf"已存在，请使用其它登录用户名</span> -->
+						<span class="status status-error status-format">不合要求，至少4个字符，最多30个字符</span>
+						<span class="status status-warm">至少4个字符，最多30个字符</span>
+						<span class="status status-succ">输入符合规则</span>
+					</dt>
+					<dd>
+						仅在登录时使用，字符数不少于4个
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<label>显&nbsp;&nbsp;示&nbsp;&nbsp;名&nbsp;&nbsp;称：</label>
+						<input type="text" name="username2">
+					</dt>
+					<dd>
+						即昵称，字符数不少于2个
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+						<input type="password" name="pwd" id="pw1">
+						<span class="status status-error status-null">不可为空</span>
+						<span class="status status-error status-format">至少8个字符，最多30个字符</span>
+						<span class="status status-warm">至少8个位，必须包含字母、数字、特殊字符</span>
+						<span class="status status-succ">输入符合规则</span>
+					</dt>
+				</dl>
+				<dl class="password-bar">
+					<dt>
+						<label>确认密码：</label>
+						<input type="password"  name="pwd2" id="pw2">
+						<span class="status status-error status-null">不可为空</span>						
+						<span class="status status-error status-format">密码与确证密码不一致，请重新输入</span>
+						<span class="status status-succ">输入成功</span>
+						<span class="status status-warm">请再输入一遍密码，要求和上面一致</span>
+					</dt>
+					<dd>
+						至少8位，必须包含字母、数字、特殊字符
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<div class="code-box">
+							<img src="img/code.jpg">
+						</div>
+						<label>验证码：</label>
+						<input type="text">
+					</dt>
+					<dd>
+						<!-- <input type="submit"> -->
+						<a href="javascript:void(0);" class="submit-btn">提交</a>
+					</dd>
+				</dl>
+			</form>
+			<ul class="re-link">	
+				<li>
+					<span>&gt;</span>
+					<a href="###">申请博客</a>
+				</li>
+				<li>
+					<span>&gt;</span>
+					<a href="###">重发激活邮件</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer">
+		<p>
+			<a href="###">关于博客园</a>
+			<a href="###">联系我们</a>
+			<a href="###">广告服务</a>
+			<span>2004-2015</span>
+			<a href="###">博客园</a>
+			<span>版权所有 保留所有权利</span>
+		</p>
+	</div>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	//获取焦点
+	$(".form-box input").focus(function() {
+		$(this).nextAll().hide().siblings(".status-warm").show();
+	})
+	$(".form-box input").blur(function() {
+		var v = $(this).val();
+		if(v == "") {
+			$(this).nextAll().hide().siblings(".status-null").show();
+
+		}else {
+			var v = $(this).val();
+			v = $.trim(v);
+			if($(this).attr("name") == "email") {
+				var reg = /^[a-zA-Z0-9._]{4,}@[a-zA-Z0-9._]{2,}\.[a-zA-Z0-9._]{2,}$/;
+			}else if($(this).attr("name") == "username") {
+				var reg = /^\w{4,30}$/;
+			}else if($(this).attr("name") == "username2") {
+				var reg = /^\w{2,30}$/;
+			}else if($(this).attr("name") == "pwd") {
+				var reg = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^&*]).{8,}$/;
+			}else if($(this).attr("name") == "pwd2") {
+				if($("#pw1").value == $("#pw2").value){
+					var reg = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^&*]).{8,}$/;
+				}
+			}
+
+			if(reg.test(v)) {
+				$(this).nextAll().hide().siblings(".status-succ").show();
+			}else {
+				$(this).nextAll().hide().siblings(".status-format").show();
+			}
+
+		}
+	})
+	</script>
+</body>
+</html>
